@@ -1,0 +1,30 @@
+import type React from "react"
+import type { Metadata } from "next"
+import { R } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
+
+const inter = Arial({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
+export const metadata: Metadata = {
+  title: "MCYHM - Interactive Experience",
+  description: "An immersive storytelling experience",
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
